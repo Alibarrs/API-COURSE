@@ -1,10 +1,12 @@
 const Job = require('../models/jobs');
 
 // Get all Jobs => /api/v1/jobs
-exports.getJobs = (req, res, next) => {
+exports.getJobs = async (req, res, next) => {
+  const jobs = await Job.find();
   res.status(200).json({
     success: true,
-    message: 'this route will display all job in future',
+    result: jobs.length,
+    data: jobs,
   });
 };
 
