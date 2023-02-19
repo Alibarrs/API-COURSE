@@ -7,13 +7,7 @@ const connectDatabase = require('./config/database');
 
 dotenv.config({ path: './config/config.env' });
 
-const middleware = (req, res, next) => {
-  console.log('halo ini adalah text dari middleware');
-  req.requestUrl = req.url;
-  next();
-};
-
-app.use(middleware);
+app.use(express.json());
 
 connectDatabase();
 

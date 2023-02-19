@@ -1,4 +1,4 @@
-const mongoose = require('require');
+const mongoose = require('mongoose');
 const validator = require('validator');
 
 const jobScheme = new mongoose.Schema({
@@ -53,7 +53,7 @@ const jobScheme = new mongoose.Schema({
     type: String,
     required: true,
     enum: {
-      values: ['Bachelor', 'Masters', 'Phd'],
+      values: ['Bachelors', 'Masters', 'Phd'],
       message: 'Please select correct options for Education.',
     },
   },
