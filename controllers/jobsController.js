@@ -20,6 +20,7 @@ exports.getJobs = catchAsyncErrors(async (req, res, next) => {
     result: jobs.length,
     data: jobs,
   });
+  ``;
 });
 
 // Create a new Job => /api/v1/job/new

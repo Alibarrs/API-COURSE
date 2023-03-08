@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
 
 const connectDatabase = require('./config/database');
 const errorMiddleware = require('./middlewares/errors');
@@ -18,6 +19,9 @@ process.on('uncaughtException', (err) => {
 
 // Setup Body Parser
 app.use(express.json());
+
+// Setup Cookie Parser
+app.use(cookieParser());
 
 connectDatabase();
 
