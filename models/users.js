@@ -4,6 +4,14 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
+  role: {
+    type: String,
+    enum: {
+      values: ['user', 'employeer'],
+      message: 'Please select correct role',
+    },
+    default: 'user',
+  },
   name: {
     type: String,
     requred: [true, 'Please enter your name'],
@@ -13,14 +21,6 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Please enter your email address'],
     unique: true,
     validate: [validator.isEmail, 'Please enter a valid email address'],
-  },
-  role: {
-    type: String,
-    enum: {
-      values: ['user', 'employeer'],
-      message: 'Please select correct role',
-    },
-    default: 'user',
   },
   password: {
     type: String,
